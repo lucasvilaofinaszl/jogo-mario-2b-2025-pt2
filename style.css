@@ -14,7 +14,7 @@
   background: linear-gradient(#87ceeb,#e0f6ff);
 }
 
-.pipe, .mario, nuvem {
+.pipe, .mario, .nuvem {
   opacity: 0;
   transition: opacity 0,5s ease-int-out;
 }

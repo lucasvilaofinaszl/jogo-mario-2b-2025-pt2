@@ -8,12 +8,12 @@ const scoreElement = document.querySelector(".score")
 audioStart = new Audio("./sound/audio_theme.mp3")
 const gameOverSound = new Audio("./sound/audio_gameover.mp3");
 
-let gameStarte = false;
+let gameStarted = false;
 let score = 0;
 
 const startGame = () => {
   gameStarted = true;
-  AudioStart.play();
+  audioStart.play();
 
   pipe.style.animation = "pipe-animation 1.5s infinite linear";
 
@@ -36,15 +36,16 @@ const jump = () => {
 const updateScore = () => {
   score +=1;
   scoreElement.textContent = score;
-const animationSpeed =1.5/(1 + score/500);
+const animationSpeed = 1.5/ (1 + score/500);
   pipe.style.animation = `pipe-animation ${animationSpeed}s infinite linear`;
 }
+
 const loop = setInterval(() => {
 const pipePosition = pipe.offsetLeft;
 const marioPosition = +window.getComputedStyle(mario).bottom.replace("px","");
 
-  if(pipePosition<= 120 && pipePosition > 0 && marioPosition <80) {
-    pipe.computedStyle.animation= "none";
+  if(pipePosition <= 120 && pipePosition > 0 && marioPosition <80) {
+    pipe.style.animation= "none";
     pipe.style.left =`${pipePosition}px`;
 
     mario.style.animation ="none";
